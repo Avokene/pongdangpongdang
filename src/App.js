@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -135,7 +132,7 @@ class App extends Component {
   }
   render(){
     return(
-      <div className="App" style={{flexDirection:'row',alignItems:'center',display:"blocks"}}>
+      <div className="App" style={{flexDirection:'row',alignItems:'center',display:"blocks",textAlign:'center'}}>
         <h1>돌깎이</h1>
         <h4>{"성공확률: "+this.state.cProbability+"%"}</h4>
         <h2 style={{color:this.state.jeongbae=="정배" ? "steelblue" : "darkred"}}>{this.state.jeongbae}</h2>
