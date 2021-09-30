@@ -194,4 +194,13 @@ class App extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  circle: {
+    width:30,
+    height:30,
+    borderRadius:30,
+    margin:5
+  }
+})
+
 export default App;
