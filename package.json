@@ -2,26 +2,27 @@
   "name": "stone_edging",
   "version": "0.1.0",
   "private": true,
-  "main": "public/electron.js",
+  "main": "public/Main.js",
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "electron-is-dev": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "concurrently \"npm run react:start\" \"npm run electron:start\"",
-    "react:start": "react-scripts start",
-    "react:build": "react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron:start": "wait-on http://localhost:3000 && electron .",
-    "electron:build": "npm run react:build && electron-builder build --mac --win -c.extraMetadata.main=build/electron.js --publish=never"
+    "react-start": "BROWSER=none yarn start",
+    "react-win-start": "set BROWSER=none && yarn start",
+    "electron-start": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-win-start": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "electron-pack": "yarn build && electron-builder build -c.extraMetadata.main=build/Main.js"
   },
   "eslintConfig": {
     "extends": [
@@ -42,24 +43,11 @@
     ]
   },
   "devDependencies": {
-    "electron": "^14.0.0",
-    "electron-builder": "^22.11.7",
     "concurrently": "^6.2.1",
+    "electron": "^15.0.0",
+    "electron-builder": "^22.11.7",
     "electron-packager": "^15.4.0",
     "electron-winstaller": "^5.0.0",
     "wait-on": "^6.0.0"
-  },
-  "build": {
-    
-    "appId": "com.pongdangpongdang.electron",
-    "files": [
-      "dist/**/*",
-      "build/**/*",
-      "node_modules/**/*",
-      "package.json"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
   }
 }
