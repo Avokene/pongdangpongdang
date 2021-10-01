@@ -130,58 +130,48 @@ class App extends Component {
       }
     }
   }
+  renderCircles(index){
+    if (index == 1) {
+      return this.state.c1.map((color)=>{
+        return(<div style={{width:30,height:30,borderRadius:30,margin:5,backgroundColor:color}} />)
+      })
+    }
+    if (index == 2) {
+      return this.state.c2.map((color)=>{
+        return(<div style={{width:30,height:30,borderRadius:30,margin:5,backgroundColor:color}} />)
+      })
+    }
+    if (index == 3) {
+      return this.state.c3.map((color)=>{
+        return(<div style={{width:30,height:30,borderRadius:30,margin:5,backgroundColor:color}} />)
+      })
+    }
+  }
   render(){
     return(
-      <div className="App" style={{flexDirection:'row',alignItems:'center',display:"blocks",textAlign:'center'}}>
+      <div className="App" style={{display:"flex",flexDirection:'column',alignItems:'center',textAlign:'center',justifyContent:'center'}}>
         <h1>돌깎이</h1>
         <h4>{"성공확률: "+this.state.cProbability+"%"}</h4>
         <h2 style={{color:this.state.jeongbae=="정배" ? "steelblue" : "darkred"}}>{this.state.jeongbae}</h2>
-        <div className="fline" style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
+        <div style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
           <div style={{width:100}}>
             <h5>첫 번째 각인</h5>
           </div>
-          <div className = "c11" style={{width:30,height:30,backgroundColor:this.state.c1[0],borderRadius:30,margin:5}}></div>
-          <div className = "c12" style={{width:30,height:30,backgroundColor:this.state.c1[1],borderRadius:30,margin:5}}></div>
-          <div className = "c13" style={{width:30,height:30,backgroundColor:this.state.c1[2],borderRadius:30,margin:5}}></div>
-          <div className = "c14" style={{width:30,height:30,backgroundColor:this.state.c1[3],borderRadius:30,margin:5}}></div>
-          <div className = "c30" style={{width:30,height:30,backgroundColor:this.state.c1[4],borderRadius:30,margin:5}}></div>
-          <div className = "c16" style={{width:30,height:30,backgroundColor:this.state.c1[5],borderRadius:30,margin:5}}></div>
-          <div className = "c17" style={{width:30,height:30,backgroundColor:this.state.c1[6],borderRadius:30,margin:5}}></div>
-          <div className = "c18" style={{width:30,height:30,backgroundColor:this.state.c1[7],borderRadius:30,margin:5}}></div>
-          <div className = "c19" style={{width:30,height:30,backgroundColor:this.state.c1[8],borderRadius:30,margin:5}}></div>
-          <div className = "c110" style={{width:30,height:30,backgroundColor:this.state.c1[9],borderRadius:30,margin:5}}></div>
+          {this.renderCircles(1)}
           <button onClick={()=>{this.onPress(1)}} style={{width:50,height:50,marginLeft:10,fontSize:14,backgroundColor:"steelblue",color:"white"}}>각인</button>
         </div>
         <div style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
           <div style={{width:100}}>
             <h5>두 번째 각인</h5>
           </div>
-          <div className = "c21" style={{width:30,height:30,backgroundColor:this.state.c2[0],borderRadius:30,margin:5}}></div>
-          <div className = "c22" style={{width:30,height:30,backgroundColor:this.state.c2[1],borderRadius:30,margin:5}}></div>
-          <div className = "c23" style={{width:30,height:30,backgroundColor:this.state.c2[2],borderRadius:30,margin:5}}></div>
-          <div className = "c24" style={{width:30,height:30,backgroundColor:this.state.c2[3],borderRadius:30,margin:5}}></div>
-          <div className = "c25" style={{width:30,height:30,backgroundColor:this.state.c2[4],borderRadius:30,margin:5}}></div>
-          <div className = "c26" style={{width:30,height:30,backgroundColor:this.state.c2[5],borderRadius:30,margin:5}}></div>
-          <div className = "c27" style={{width:30,height:30,backgroundColor:this.state.c2[6],borderRadius:30,margin:5}}></div>
-          <div className = "c28" style={{width:30,height:30,backgroundColor:this.state.c2[7],borderRadius:30,margin:5}}></div>
-          <div className = "c29" style={{width:30,height:30,backgroundColor:this.state.c2[8],borderRadius:30,margin:5}}></div>
-          <div className = "c210" style={{width:30,height:30,backgroundColor:this.state.c2[9],borderRadius:30,margin:5}}></div>
+          {this.renderCircles(2)}
           <button onClick={()=>{this.onPress(2)}} style={{width:50,height:50,marginLeft:10,fontSize:14,backgroundColor:"steelblue",color:"white"}}>각인</button>
         </div>
         <div style={{alignItems:'center',display:'flex',justifyContent:'center'}}>
           <div style={{width:100}}>
             <h5>감소</h5>
           </div>
-          <div className = "c31" style={{width:30,height:30,backgroundColor:this.state.c3[0],borderRadius:30,margin:5}}></div>
-          <div className = "c32" style={{width:30,height:30,backgroundColor:this.state.c3[1],borderRadius:30,margin:5}}></div>
-          <div className = "c33" style={{width:30,height:30,backgroundColor:this.state.c3[2],borderRadius:30,margin:5}}></div>
-          <div className = "c34" style={{width:30,height:30,backgroundColor:this.state.c3[3],borderRadius:30,margin:5}}></div>
-          <div className = "c35" style={{width:30,height:30,backgroundColor:this.state.c3[4],borderRadius:30,margin:5}}></div>
-          <div className = "c36" style={{width:30,height:30,backgroundColor:this.state.c3[5],borderRadius:30,margin:5}}></div>
-          <div className = "c37" style={{width:30,height:30,backgroundColor:this.state.c3[6],borderRadius:30,margin:5}}></div>
-          <div className = "c38" style={{width:30,height:30,backgroundColor:this.state.c3[7],borderRadius:30,margin:5}}></div>
-          <div className = "c39" style={{width:30,height:30,backgroundColor:this.state.c3[8],borderRadius:30,margin:5}}></div>
-          <div className = "c310" style={{width:30,height:30,backgroundColor:this.state.c3[9],borderRadius:30,margin:5}}></div>
+          {this.renderCircles(3)}
           <button onClick={()=>{this.onPress(3)}} style={{width:50,height:50,marginLeft:10,fontSize:14,backgroundColor:"darkred",color:"white"}}>각인</button>
         </div>
         <button onClick={()=>{this.onReset()}}>리셋</button>
@@ -194,13 +184,14 @@ class App extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   circle: {
     width:30,
     height:30,
     borderRadius:30,
-    margin:5
+    margin:5,
+    backgroundColor:"#000"
   }
-})
+}
 
 export default App;
